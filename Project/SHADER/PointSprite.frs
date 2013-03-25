@@ -1,0 +1,12 @@
+#version 120
+
+uniform sampler2D Tex;			//テクスチャ
+varying vec4 vColor;			//パーティクル色
+
+void main(void)
+{
+	vec4 dcolor = texture2DProj(Tex, gl_TexCoord[0]);
+	gl_FragColor = vec4(0.05f, 0.05f, 0.05f, 0.0f);	//最低値を入れる
+	gl_FragColor += dcolor * vColor;
+	//gl_FragColor.a *= dcolor.w;
+}

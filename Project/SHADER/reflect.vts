@@ -1,0 +1,17 @@
+varying vec3 ReflectDir;
+
+uniform vec4 WorldCameraPosition;
+
+void main()
+{
+
+    vec3 worldPos = vec3( gl_ModelViewMatrix * vec4(gl_Vertex.xyz,1.0));
+    vec3 worldNorm = vec3(gl_ModelViewMatrix * vec4(gl_Normal, 0.0));
+    //vec3 worldView = normalize( WorldCameraPosition.xyz - worldPos );
+    vec3 worldView = vec3(gl_ModelViewMatrix * gl_Vertex)
+
+    ReflectDir = reflect(worldView, worldNorm );
+
+    //gl_Position = gl_ModelViewMatrix * vec4(gl_Vertex.xyz,1.0);
+    gl_Position = ftransform();
+}

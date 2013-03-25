@@ -1,0 +1,11 @@
+varying vec3 ReflectDir;
+
+uniform samplerCube CubeMapTex;
+
+void main() {
+float ReflectFactor = 0.87;
+vec4 MaterialColor = vec4(0.7, 0.7, 0.7, 1.0);
+    vec4 cubeMapColor = textureCube(CubeMapTex, ReflectDir);
+
+    gl_FragColor = mix( MaterialColor, cubeMapColor, ReflectFactor);
+}

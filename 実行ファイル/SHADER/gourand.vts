@@ -1,0 +1,6 @@
+//グローシェーディング
+//vrt…バーテックスシェーダ
+void main (void)
+{
+	gl_Position = ftransform();
+}

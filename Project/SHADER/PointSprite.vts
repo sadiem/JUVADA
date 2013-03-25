@@ -1,0 +1,13 @@
+#version 120
+
+uniform float size;			//パーティクルサイズ
+attribute vec4 color;		//色情報
+varying vec4 vColor;
+void main(void)
+{
+	gl_Position = ftransform();
+	//gl_PointSize = size / gl_Position.w;			//点の大きさの変更
+	gl_PointSize = size;			//点の大きさの変更
+	gl_TexCoord[0] = gl_MultiTexCoord0;
+	vColor = color;
+}
